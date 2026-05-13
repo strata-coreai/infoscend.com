@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Client View Is the Same Screen - Just Rendered Differently - Infoscend Knowledge Center</title>
+  <meta name="description" content="The Client View Is the Same Screen - Just Rendered Differently">
+  <meta name="keywords" content="distribution management, FMCG distribution, route to market, Infoscend">
+  <meta property="og:title" content="The Client View Is the Same Screen - Just Rendered Differently">
+  <meta property="og:description" content="The Client View Is the Same Screen - Just Rendered Differently">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://infoscend.com/articles/one-screen-render-modes.html">
+  <meta property="og:site_name" content="Infoscend">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://infoscend.com/articles/one-screen-render-modes.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Client View Is the Same Screen - Just Rendered Differently",
+    "description": "The Client View Is the Same Screen - Just Rendered Differently",
+    "author": {
+      "@type": "Organization",
+      "name": "Infoscend"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Infoscend",
+      "url": "https://infoscend.com"
+    },
+    "url": "https://infoscend.com/articles/one-screen-render-modes.html",
+    "articleSection": "Product Design"
+  }
+  </script>
+</head>
+<body>
+<nav class="nav" id="main-nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.svg" alt="Infoscend" height="32"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+    <span class="wordmark" style="display:none;">INFOSCEND</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#capabilities">Platform</a></li>
+    <li><a href="/#knowledge">Knowledge</a></li>
+    <li><a href="https://dms.infoscend.com" target="_blank" rel="noopener">Live Demo</a></li>
+    <li><a href="/#briefing" class="nav-cta">Request Briefing</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true">
+  <button class="nav-overlay-close" id="overlay-close" aria-label="Close menu">&times;</button>
+  <a href="/#capabilities" onclick="closeOverlay()">Platform</a>
+  <a href="/#knowledge" onclick="closeOverlay()">Knowledge</a>
+  <a href="/#briefing" onclick="closeOverlay()">Request Briefing</a>
+</div>
+<section class="article-hero">
+  <span class="eyebrow">Product Design</span>
+  <h1>The Client View Is the Same Screen - Just Rendered Differently</h1>
+  <div class="article-hero-img">
+    <img src="/images/articles/one-screen-render-modes-1.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  </div>
+</section>
+<section class="article-body-section">
+  <div class="article-body-inner">
+    <a href="/#knowledge" class="article-back">&larr; Back to Knowledge Center</a>
+<p>The natural instinct when building B2B software with multiple user types is to build multiple views. Admin console for the internal team. Client dashboard for the external user. Partner portal for the ecosystem. Each view is its own code path, its own design language, its own permission model, its own deployment surface. The architecture diagram looks tidy. The maintenance burden is enormous, and the drift between views is relentless.</p>
+<p>There's a better pattern, and it took us a while to find it. One screen. Two rendering modes. Zero drift.</p>
+<h2>The problem with separate views</h2>
+<p>Start with the common architecture. The senior partner (the consultant running the engagement) has a screen showing a territory's analysis - full edit access, formula codes visible, confidence badges, benchmark details, cost structure breakdowns, override controls. The client's commercial director has a different screen showing "the same" analysis - except it's really a different component, with a different URL, different data bindings, different styling, and maintained separately.</p>
+<p>Every change you make to the analysis propagates to both views. Except when it doesn't - a new field added to the SP screen gets forgotten on the client view until a week later when a client asks for something and can't find it. A bug fix on the SP screen doesn't carry to the client view because the components share no code. The design system starts drifting because the two screens evolve on different cadences and end up looking subtly different.</p>
+<p>The underlying mistake is treating "different role" as equivalent to "different screen". It's almost always the former, rarely the latter. The same analysis is relevant to both the SP and the client; they just need different amounts of detail and different edit affordances. That's a rendering difference, not a structural one.</p>
+<h2>The render-mode pattern</h2>
+<p>The cleaner design uses one screen with two modes. The SP sees full access: every field editable, every formula code labelled, every benchmark shown, every confidence badge surfaced, every override control exposed. The client view of the same screen is stripped down: ingoing hypotheses, confirmed variables, phase progress, data pack status - clean, transparent, professional, but without the SP's working papers.</p>
+<figure class="article-figure">
+  <img src="/images/articles/one-screen-render-modes-2.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+</figure>
+<p>Not two separate screens. One screen, rendered differently. Toggle between modes in the same session. The SP is working on the analysis in SP mode; five minutes before the client meeting starts, they flip to Client View, and the same screen becomes a client-facing artefact. After the meeting, they flip back to SP mode and continue the analytical work.</p>
+<p>The key insight is that the information hierarchy is the same for both audiences. Both the SP and the client care about the territory's attractiveness score. The SP also cares about how it was computed. The client cares about how confident we are in it. These are different questions, but they're questions about the same underlying object. The render mode controls which questions are visibly answered.</p>
+<h2>What changes and what doesn't</h2>
+<p>What changes between modes: - **Field visibility.** SP sees all fields; client view hides fields that represent SP working notes (override reasons, raw formula codes, internal benchmarks). - **Edit affordances.** SP sees edit controls; client view shows values as read-only. - **Label language.** SP labels use platform vocabulary (ATR-001, C12, R1-adj); client labels are business language (Territory Attractiveness, Working Capital, Adjusted Market Volume). - **Supporting context.** SP sees confidence badges on everything with drill-down to the confidence cascade; client view shows confidence badges on headline numbers without drill-down. - **Density.** SP screens pack information densely for expert use; client screens breathe more, with whitespace and emphasis on headline insights.</p>
+<p>What stays the same: - **The data.** Both modes render the same underlying data. Numbers don't change between views. - **The URL and routing.** Same screen, same route, just different render mode. - **The navigation structure.** The sidebar, the screen hierarchy, the engagement context are shared. - **The data model.** One source of truth, no mirroring.</p>
+<p>The technical implementation is straightforward. A render mode flag in the component (controlled at the page level by the user's role or a manual toggle for SPs who want to preview the client view). Conditional rendering on field visibility. A parallel label table for business-language translations. Read-only versus edit affordances switched via the same flag. Density tokens applied at the layout level.</p>
+<p>The discipline is that every feature added to the screen is added once, with its render behaviour for both modes decided at build time. There's no "build it for SP first and retrofit for client later", because the retrofit always lags. If the feature doesn't need to appear in client view, that's explicit: the feature declaration says "SP only" and the component enforces it.</p>
+<figure class="article-figure">
+  <img src="/images/articles/one-screen-render-modes-3.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+</figure>
+<h2>Why this respects a truth about consulting work</h2>
+<p>The render-mode pattern isn't just a technical convenience. It encodes something true about the consultant-client relationship. The SP is not hiding anything from the client. They're protecting a cognitive space to work in while keeping the client informed. The working papers - benchmarks, override reasons, formula codes - would distract the client without adding understanding. They're the senior partner's scratch space, not hidden data. Everything material to the client's decision is visible in client view. What's hidden is the working.</p>
+<p>This is how good consulting has always worked. The senior partner's notebook is private; the deliverable is public. Nothing material is in the notebook that isn't eventually in the deliverable; the notebook is just where the thinking happens before it's ready. A good software architecture respects that the same person needs both - a scratch space to think in, and a polished view to present.</p>
+<h2>The maintenance dividend</h2>
+<p>Over time, the single-screen pattern compounds into a dramatic maintenance advantage. Every new field added to an analysis appears in both views automatically, with the correct edit affordances. Every bug fix propagates to both views. Every design system update applies to both. Drift is structurally impossible because there's nothing to drift between.</p>
+<p>When we added new screens post-launch - scenario comparison, distributor audit, synthesis dashboard - the render-mode pattern was mechanical to apply. Design each screen once for SP mode. Decide the client view by subtraction: what hides? what becomes read-only? what gets relabelled? Commit. The incremental cost of supporting the client view on a new screen is perhaps 15% of the SP build time, not 100% as it would have been with separate screens.</p>
+<h2>When the pattern breaks</h2>
+<p>The pattern isn't universal. It breaks when the audiences are fundamentally doing different tasks on the same data. If the SP needs a detailed analytical workflow and the client needs an approval workflow, a toggle isn't enough - the interaction models are different, and forcing them into one component would compromise both.</p>
+<p>But that case is rarer than the default architecture assumes. Most "different views" aren't different tasks; they're different detail levels on the same task. Test the assumption before splitting. Ask: is the client doing something different here, or just seeing less? If the latter, one screen with two render modes. If the former, separate screens. Most of the time, it's the latter - and every time you correctly identify it, you save months of future maintenance.</p>
+<p>The dashboard sprawl that accumulates in mature B2B products almost always traces back to treating "different role" as "different screen". A more honest audit would cull half those dashboards in favour of render modes on the originals. The product wouldn't lose a feature; it would gain consistency. That's a trade worth making deliberately at build time, rather than inheriting the sprawl by default.</p>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a href="/" class="footer-logo">
+          <img src="/images/logo.svg" alt="Infoscend" height="28"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+          <span class="wordmark" style="display:none;">INFOSCEND</span>
+        </a>
+        <span class="footer-copy">&copy; 2026 Infoscend. All rights reserved.</span>
+      </div>
+      <a href="mailto:contact@infoscend.com" class="footer-email">contact@infoscend.com</a>
+    </div>
+  </div>
+</footer>
+<script>
+  var nav=document.getElementById('main-nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+  var hamburger=document.getElementById('hamburger-btn'),overlay=document.getElementById('nav-overlay'),closeBtn=document.getElementById('overlay-close');
+  hamburger.addEventListener('click',function(){overlay.classList.add('open');document.body.style.overflow='hidden';});
+  closeBtn.addEventListener('click',closeOverlay);
+  function closeOverlay(){overlay.classList.remove('open');document.body.style.overflow='';};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))closeOverlay();});
+</script>
+</body>
+</html>

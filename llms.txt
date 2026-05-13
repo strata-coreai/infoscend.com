@@ -1,0 +1,85 @@
+# Infoscend — Commercial Intelligence Platform
+
+> Infoscend is the AI-powered commercial intelligence platform for companies that distribute through third-party networks. One platform covering distribution management, sales force automation, competitive intelligence, AI insights, trade marketing, and retailer loyalty. Tagline: Strategy flows down. Intelligence flows up. The loop closes.
+
+## Brand
+
+- Name: Infoscend (pronounced in-fo-send)
+- Etymology: info + scend (the upward lift of a wave — information ascending)
+- Tagline: Strategy flows down. Intelligence flows up. The loop closes.
+- Voice: practitioner-direct, numbers-first, no marketing softeners
+
+## Core Products
+
+- **Distribution Management System (DMS)**: Multi-tenant, multi-distributor operational backbone. Orders, billing, inventory, credit limits, batch tracking, warehouse operations. ROIC-based distributor viability measurement. Financial controls with WAC, banker's rounding, configurable tax.
+- **Sales Force Automation (SFA)**: Mobile-first field app for distributor sales representatives. AI pitch recommendations, GPS-verified visits, voice journaling, offline-first architecture, smart route planning. Captures field intelligence that feeds back into the platform.
+- **Competitive Intelligence Pipeline**: Reps photograph competitor price lists in the field. AI extracts prices, matches to catalogue, validates against baselines, flags anomalies. Pricing aspiration matrix for competitive positioning.
+- **AI Insights & Analytics**: Performance command centre, distributor health scoring, attrition risk prediction, demand forecasting, natural language queries, AI insight cards. Executive dashboards with self-serve report builder.
+- **Trade Marketing & Digital**: Promotion simulation with AI-predicted ROI. Campaign builder with push-to-serve across Meta, Google, TikTok, Shopee/Lazada. Creative asset management. Full campaign attribution.
+- **Retailer Loyalty & Trade App**: Mobile app for retailers. Multi-brand loyalty, QR scan-to-earn, order history, reward redemption. Direct brand-to-outlet relationship.
+
+## Key Differentiators
+
+- Diagnosis-to-configuration: RTM assessment findings automatically seed module configurations
+- ROIC-based viability: distributor relationships measured by return on invested capital, not gross margin
+- Ground truth: GPS-verified visits, AI-analysed shelf photos, system-ingested sell-out data
+- Three-tier AI learning: prompt improvement, codified rules, deterministic pattern bypass
+- Adoption as design problem: field app faster than the rep's paper book, offline-first, multilingual, one-thumb operation
+
+## Architecture
+
+- Four operating loops with AI reasoning at the centre:
+  - Loop 01 Commercial leadership: strategy → cascade → execution
+  - Loop 02 Brand marketing: brief → push → attribution
+  - Loop 03 Field intelligence: capture → extract → claim
+  - Loop 04 Trade marketing: promo → ROI → sell-through
+
+## Target Market
+
+FMCG, lubricants, automotive aftermarket, hardware, industrial chemicals, pharma distribution, consumer durables — any company distributing through third-party networks. Typical buyer: Founder/GM, Country Sales Director, Strategy VP, or Commercial Director.
+
+## Knowledge Centre
+
+38 practitioner essays on route-to-market strategy, distributor economics, and commercial intelligence:
+- The Receivables Trap: Why Challenger Distributors Go Broke on Paper-Profitable Businesses
+- EBITDA and ROIC Are Not Substitutes: Why Single-Test Viability Kills Distributor Businesses
+- Incumbency Bias Is an Architecture Problem: The Case for Sealed-Track Strategy Work
+- The Disconfirmation Slide: Why the Strongest Counter-Argument Belongs in the Main Deck
+- The Shared Infrastructure Model: Rethinking Distribution Economics for Marginal Territories
+- Co-Build: Why AI Alone and Clients Alone Both Produce Garbage
+- Confidence Tiers as a Commercial Discipline
+- Dimension 4 Is Contextual: Why Principal Respect Can't Be a Binary Gate for Challenger Brands
+- Fault Attribution: The Missing Commercial Capability
+- Translation Loss: Why Solo Founders Building With AI Can Out-Execute Traditional Teams
+- Why Strategy Disappears Between the Boardroom and the Shelf
+- The Joint Business Plan Has Been a Document for 30 Years. That's the Problem.
+- The Performance Signature Engine
+- ROIC, Not Gross Margin: The Only Honest Measure of Distributor Viability
+- The DSR Is the Point Where Strategy Disappears. It Doesn't Have to Be.
+- eCommerce Isn't Killing Your Distributor. Misattribution Is.
+- The Diagnosis Becomes the Configuration
+- Client-Neutral SaaS and the Invisible Moat of Canonical Mapping
+- The Tenant's Superpower: DSR Incentives That Bypass the Distributor's Priority Filter
+- The Closed Loop: Why Architecture Beats Features in Commercial Operating Systems
+- The Real Moat Isn't Code - It's the Data Network Effect
+- Ways of Working Documents Are Secretly Sales Assets
+- Territories Are Not the Unit of Analysis - Scenarios Are
+- Consulting Discipline Beats AI Velocity
+- Channel x Product Is a Strategic Diagnostic, Not Just a Formula Input
+- Two States, Not One - Delivered vs Closed
+- Confidence Badges Turn Assumptions into Conversations
+- Bottom-Up R3, Not Top-Down - Why Aspiration Can't Be a Percentage
+- The Client View Is the Same Screen - Just Rendered Differently
+- Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug
+- E-Commerce Cannibalisation Needs a First-Class Variable, Not a Footnote
+- The SKU Channel Fit Score Started as a Weighted Average and Became a Portfolio Question
+- Stop Asking Claude to Evaluate Your Product - Put a Real Person Through It
+- The Real Distributor Conversation Isn't About Margins - It's About Working Capital
+- The Audit Log Is the Product, Not the Paper Trail
+
+## Contact
+
+- Website: https://infoscend.com
+- DMS demo: https://dms.infoscend.com (gated)
+- Email: contact@infoscend.com
+- Briefing: 45 minutes, your data, no deck — request at https://infoscend.com/#briefing

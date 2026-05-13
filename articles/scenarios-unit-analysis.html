@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Territories Are Not the Unit of Analysis - Scenarios Are - Infoscend Knowledge Center</title>
+  <meta name="description" content="Territories Are Not the Unit of Analysis - Scenarios Are">
+  <meta name="keywords" content="distribution management, FMCG distribution, route to market, Infoscend">
+  <meta property="og:title" content="Territories Are Not the Unit of Analysis - Scenarios Are">
+  <meta property="og:description" content="Territories Are Not the Unit of Analysis - Scenarios Are">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://infoscend.com/articles/scenarios-unit-analysis.html">
+  <meta property="og:site_name" content="Infoscend">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://infoscend.com/articles/scenarios-unit-analysis.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Territories Are Not the Unit of Analysis - Scenarios Are",
+    "description": "Territories Are Not the Unit of Analysis - Scenarios Are",
+    "author": {
+      "@type": "Organization",
+      "name": "Infoscend"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Infoscend",
+      "url": "https://infoscend.com"
+    },
+    "url": "https://infoscend.com/articles/scenarios-unit-analysis.html",
+    "articleSection": "Product Architecture"
+  }
+  </script>
+</head>
+<body>
+<nav class="nav" id="main-nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.svg" alt="Infoscend" height="32"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+    <span class="wordmark" style="display:none;">INFOSCEND</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#capabilities">Platform</a></li>
+    <li><a href="/#knowledge">Knowledge</a></li>
+    <li><a href="https://dms.infoscend.com" target="_blank" rel="noopener">Live Demo</a></li>
+    <li><a href="/#briefing" class="nav-cta">Request Briefing</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true">
+  <button class="nav-overlay-close" id="overlay-close" aria-label="Close menu">&times;</button>
+  <a href="/#capabilities" onclick="closeOverlay()">Platform</a>
+  <a href="/#knowledge" onclick="closeOverlay()">Knowledge</a>
+  <a href="/#briefing" onclick="closeOverlay()">Request Briefing</a>
+</div>
+<section class="article-hero">
+  <span class="eyebrow">Product Architecture</span>
+  <h1>Territories Are Not the Unit of Analysis - Scenarios Are</h1>
+  <div class="article-hero-img">
+    <img src="/images/articles/scenarios-unit-analysis-1.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  </div>
+</section>
+<section class="article-body-section">
+  <div class="article-body-inner">
+    <a href="/#knowledge" class="article-back">&larr; Back to Knowledge Center</a>
+<p>The first version of the territory model was clean and wrong. Each territory was a named group of districts with its own market size (R1), its own distributor P&L, its own position on the attractiveness-versus-ability-to-win matrix. You could open a territory, look at its numbers, decide whether it was viable, and move on. The UI mirrored the data model: a list of territories, each with its own detail page.</p>
+<p>Two problems emerged almost immediately.</p>
+<h2>Problem one: double counting</h2>
+<p>In real route-to-market deployments, territories overlap. A border district between Klang Valley and Northern Corridor belongs geographically to whichever territory the senior partner decides includes it - but the decision is rarely binary. A shared wholesaler might serve outlets on both sides. A distributor covering one territory might have informal reach into the other. When the spec said "territory equals a set of districts", the implementation ended up with districts appearing in multiple territories simultaneously.</p>
+<p>The formulas didn't care. R1 was calculated per territory by summing district-level addressable volume. If a district appeared in two territories, its full R1 potential was counted in both. The national sum of territory R1s exceeded the national R1 - sometimes by 15%, sometimes by more. Every downstream calculation inherited the error. Distributor P&L overstated revenue potential. Return on invested capital looked higher than it was. Territories that should have been flagged as "at risk" showed as "viable" because the inflated R1 made the numbers work.</p>
+<p>The fix isn't complicated - de-duplicate districts across territories, flag overlaps, force the senior partner to make a call. But the underlying question is harder. What is the right unit of analysis for route-to-market design? A territory, considered alone, doesn't answer a business question. A CEO doesn't ask "is Klang Valley viable?" They ask "if I deploy these four territories covering 62% of my national market, what do I get, what does it cost, and how many distributors do I need?"</p>
+<figure class="article-figure">
+  <img src="/images/articles/scenarios-unit-analysis-2.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+</figure>
+<h2>Problem two: no coherent coverage picture</h2>
+<p>The second problem was more fundamental. Looking at territories one at a time, you could never answer the coverage question. The platform had no concept of a territory set as a unit of analysis. You could export six territories to a spreadsheet and add them up by hand, but that's not a product - that's a worksheet. And the addition was wrong anyway, because of the double-counting problem.</p>
+<p>More importantly, the coverage question isn't just additive. A four-territory scenario covering 62% of the national market with three distributors isn't the same as a six-territory scenario covering 78% with five distributors. The first has lower absolute reach but higher per-distributor productivity and lower coordination cost. The second has wider coverage but thinner distributor economics and more complex governance. These are different commercial propositions, not just different rows in a table. A CEO choosing between them needs to see them as wholes, not as sums of parts.</p>
+<h2>The fix: scenarios as a first-class entity</h2>
+<p>We introduced a new entity: the Scenario. A scenario is a MECE - mutually exclusive, collectively exhaustive - grouping of territories that answers the coverage question as a whole. Districts belong to exactly one territory within a scenario. National coverage is the sum of territory coverage, with no overlaps. Distributor count is the count of distributors across all territories in the scenario. National sell-in projection is the sum of territory sell-in, correctly added. Every number adds up the way it should, because the data model enforces MECE-ness at the scenario level.</p>
+<p>More than a technical fix, this changed how we thought about the product. A territory became a building block. A scenario became the commercial proposition. The SP's primary unit of decision-making shifted from "is this territory viable?" to "does this scenario deliver the aspiration?" Territories still matter - they're where the distributor P&L lives, where the DSR count is calculated, where the outlet archetypes are defined - but they're no longer the top-level unit of analysis. Scenarios are.</p>
+<p>The UI followed. The landing screen for an engagement now shows scenarios as cards: three MECE options, each showing territory count, national coverage percentage, distributor count, and aggregate viability summary. Clicking into a scenario reveals its territories. The territory list is no longer the first thing a user sees; it's the drill-down.</p>
+<figure class="article-figure">
+  <img src="/images/articles/scenarios-unit-analysis-3.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+</figure>
+<h2>The broader pattern</h2>
+<p>This experience pointed at something more general. When you build a platform around the most obvious unit of data - in our case, the territory, because that's the thing you draw on a map - you often miss the unit that matches the actual business question. The business question here wasn't about individual territories; it was about coverage scenarios. The platform's first architecture encoded the wrong abstraction at the wrong level.</p>
+<p>The pattern repeats across enterprise software. Salesforce made Accounts the primary unit, but the real business question is often about Account Relationships (supplier-customer, parent-subsidiary, partner-to-partner) - which is why so much Salesforce customisation work is essentially building a shadow entity on top of Account. Figma made Files the unit, then realised Design Systems were the real unit for enterprise buyers. Airtable made Tables the unit, then added Interfaces because the real unit was the business workflow, not the schema.</p>
+<p>The move is the same in each case. Identify the unit of analysis that matches the decision the user is actually making. Make that unit a first-class entity in the data model. Let the old obvious unit become a building block, not the top level. It's a painful migration when you do it late, and it's the single most impactful architectural decision most platforms make.</p>
+<h2>What the migration looked like for us</h2>
+<p>Adding scenarios wasn't a schema change in isolation. It was a redefinition of MECE constraints across every territory-touching entity: districts belong to one territory per scenario, distributors are assigned at the territory level within a scenario, market sizing rolls up from territory to scenario, the two-by-two matrix is scenario-scoped. Every formula that previously summed territories had to be re-audited for scenario-awareness. Every UI that listed territories needed a scenario selector. The data migration was cautious - existing territories became a single implicit scenario per engagement, preserving history while making the new model canonical going forward.</p>
+<p>It was four weeks of work that should have been one week of work if we'd gotten the unit of analysis right at the start. That's the cost of the pattern. It's also why, when we designed Modules 2 and 3, the first question we asked for each was: what is the unit of analysis here? For Module 2 (JBP and live tracking), it's the annual joint business plan, scoped to a distributor-territory pair. For Module 3 (field execution), it's the DSR-week - the combination of a specific DSR's planned visits over a week against actual completion. Get the unit right, and everything else follows. Get it wrong, and you spend months grafting the right abstraction onto a model that doesn't want to hold it.</p>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a href="/" class="footer-logo">
+          <img src="/images/logo.svg" alt="Infoscend" height="28"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+          <span class="wordmark" style="display:none;">INFOSCEND</span>
+        </a>
+        <span class="footer-copy">&copy; 2026 Infoscend. All rights reserved.</span>
+      </div>
+      <a href="mailto:contact@infoscend.com" class="footer-email">contact@infoscend.com</a>
+    </div>
+  </div>
+</footer>
+<script>
+  var nav=document.getElementById('main-nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+  var hamburger=document.getElementById('hamburger-btn'),overlay=document.getElementById('nav-overlay'),closeBtn=document.getElementById('overlay-close');
+  hamburger.addEventListener('click',function(){overlay.classList.add('open');document.body.style.overflow='hidden';});
+  closeBtn.addEventListener('click',closeOverlay);
+  function closeOverlay(){overlay.classList.remove('open');document.body.style.overflow='';};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))closeOverlay();});
+</script>
+</body>
+</html>

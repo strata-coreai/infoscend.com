@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug - Infoscend Knowledge Center</title>
+  <meta name="description" content="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug">
+  <meta name="keywords" content="distribution management, FMCG distribution, route to market, Infoscend">
+  <meta property="og:title" content="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug">
+  <meta property="og:description" content="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://infoscend.com/articles/cross-tenant-membership-model.html">
+  <meta property="og:site_name" content="Infoscend">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://infoscend.com/articles/cross-tenant-membership-model.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug",
+    "description": "Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug",
+    "author": {
+      "@type": "Organization",
+      "name": "Infoscend"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Infoscend",
+      "url": "https://infoscend.com"
+    },
+    "url": "https://infoscend.com/articles/cross-tenant-membership-model.html",
+    "articleSection": "Architecture"
+  }
+  </script>
+</head>
+<body>
+<nav class="nav" id="main-nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.svg" alt="Infoscend" height="32"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+    <span class="wordmark" style="display:none;">INFOSCEND</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/#capabilities">Platform</a></li>
+    <li><a href="/#knowledge">Knowledge</a></li>
+    <li><a href="https://dms.infoscend.com" target="_blank" rel="noopener">Live Demo</a></li>
+    <li><a href="/#briefing" class="nav-cta">Request Briefing</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger-btn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true">
+  <button class="nav-overlay-close" id="overlay-close" aria-label="Close menu">&times;</button>
+  <a href="/#capabilities" onclick="closeOverlay()">Platform</a>
+  <a href="/#knowledge" onclick="closeOverlay()">Knowledge</a>
+  <a href="/#briefing" onclick="closeOverlay()">Request Briefing</a>
+</div>
+<section class="article-hero">
+  <span class="eyebrow">Architecture</span>
+  <h1>Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug</h1>
+  <div class="article-hero-img">
+    <img src="/images/articles/cross-tenant-membership-model-1.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  </div>
+</section>
+<section class="article-body-section">
+  <div class="article-body-inner">
+    <a href="/#knowledge" class="article-back">&larr; Back to Knowledge Center</a>
+<p>The multi-tenant architecture pattern in most B2B SaaS platforms is elegant in its simplicity. Each customer organisation is a tenant. Each user belongs to one tenant. Every database query is scoped by tenant ID. The isolation is enforced at the data layer, and the auth system guarantees that a user can only ever see their own tenant's data. The pattern has been refined over two decades of SaaS building and is well understood.</p>
+<p>It also completely fails to model how consulting and agency work actually happens.</p>
+<h2>The consulting access model</h2>
+<p>A senior partner at a consulting firm might be running three engagements simultaneously - one for Client A (a lubricants company in Indonesia), one for Client B (a personal care company in Malaysia), one for Client C (a beverage company in the Philippines). Each client has its own tenant. Each engagement is contractually scoped to its own tenant's data. The senior partner needs access to all three tenants. Under the standard multi-tenant model, that's impossible with a single user account - a user belongs to one tenant. The workarounds are all ugly.</p>
+<p>Workaround one: the senior partner gets three separate logins - sp@infoscend.clientA, sp@infoscend.clientB, sp@infoscend.clientC. They have to log out and log back in to switch engagements. Any SP preferences or history is per-login, so there's no continuity. Every Auth0 session is independent. In practice, senior partners maintain three browser profiles or three incognito tabs just to work across engagements. This is tolerable for two clients, painful for three, unworkable for five.</p>
+<p>Workaround two: the platform is run by the consulting firm as a single tenant, and all clients are data within it. This violates the contractual data isolation promise - Client A's data is in the same tenant as Client B's - which is usually a deal-breaker for enterprise clients, especially on sensitive commercial data.</p>
+<p>Workaround three: senior partners are given "super-user" access that breaks tenant isolation at the auth layer. This is brittle, security-theatrical, and creates audit nightmares.</p>
+<p>None of these are fixes. They're compromises that encode the wrong assumption - that a user belongs to one tenant - into workarounds that leak implementation details into the user experience.</p>
+<figure class="article-figure">
+  <img src="/images/articles/cross-tenant-membership-model-2.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+</figure>
+<h2>The membership model</h2>
+<p>The real fix is architectural. The schema needs a membership layer that models the many-to-many relationship between users and engagements, independent of tenant. Concretely:</p>
+<p>Senior partners belong to a "Infoscend" super-tenant - their employer. Each consulting firm running the platform would have its own super-tenant. Client users (commercial directors, regional MDs, distributors) belong to their own client tenant, as in the standard model. What's new is an `EngagementMember` table that maps users to engagements, with a role, an invitation timestamp, and a revocation timestamp. The engagement has a client tenant. The user has a home tenant. Their membership in the engagement is a separate record that grants scoped access across tenant boundaries.</p>
+<p>This changes several things. Route middleware can no longer just check tenant membership - it has to check engagement membership for any engagement-scoped operation. A senior partner can be a member of engagements in multiple client tenants without having multiple logins. A client user can be invited into an engagement within their own tenant with a specific role that lasts for the engagement duration and is automatically revoked on delivery. The access model matches the business model: memberships are per-engagement, time-bounded, and explicit.</p>
+<h2>Why most platforms retrofit this badly</h2>
+<p>Every platform I've seen eventually confronts this problem. The usual response is to patch rather than rebuild. Add a "workspace selector" that lets users switch between tenants. Add "external user" flags on the user record. Add ad hoc cross-tenant permissions that are checked inline in specific routes. Each patch solves an immediate problem. Together, they accumulate into an auth system that nobody fully understands, audits can't reliably certify, and security incidents are bound to eventually expose.</p>
+<p>The reason the retrofit is bad is that the original schema encoded a structural assumption - users have exactly one tenant - and the patches don't remove the assumption; they work around it. The middleware still expects tenant-scoped access. The row-level security policies still assume tenant membership is the primary access control. The UI still treats tenant as a global context. The patches force the system to pretend the assumption holds while secretly admitting it doesn't. Every new feature has to navigate the pretence, and every new feature has a chance of introducing an access-control bug because the rules are no longer coherent.</p>
+<p>The right fix is to redesign the schema so the membership layer is primary. This is a multi-week architectural project, not a bug fix. It touches auth middleware, row-level security, UI context, Auth0 claims structure, and every route's access-control logic. It also touches product design - the UX of switching engagements, the permissions UI for inviting and revoking client users, the audit log that tracks membership changes. Everything downstream of the schema has to adapt.</p>
+<h2>The Auth0 implications</h2>
+<p>In our case, a specific wrinkle emerged around Auth0 claims. The standard pattern is for the JWT to carry a user's tenant ID and role, and for the middleware to trust the JWT. With engagement membership as a separate concept, the JWT can't simply carry "tenant X, role Y" - it needs to carry the user's home tenant, their home role (if any), and the set of engagements they're a member of (with their role per engagement). Encoding this in the JWT keeps the token size bounded if a user is a member of many engagements.</p>
+<figure class="article-figure">
+  <img src="/images/articles/cross-tenant-membership-model-3.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+</figure>
+<p>One approach: the JWT carries only the user's home tenant and a "has engagement memberships" flag. The middleware, on each request to an engagement-scoped route, fetches the user's current engagement memberships from the database and checks against the requested engagement. This is an extra database call per request but keeps the token clean. For performance, engagement memberships can be cached in Redis with a short TTL, invalidated on any membership change.</p>
+<p>A second approach: the JWT carries a compressed representation of engagement memberships - engagement IDs and roles, encoded as a packed array. The middleware doesn't need the database call; it can validate engagement access purely from the token. Faster but requires token refresh whenever memberships change, which can be problematic for long-lived sessions.</p>
+<p>We went with the first approach. The performance cost is negligible (Redis lookups are fast), the implementation is simpler, and the membership-revocation semantics are cleaner - revoking access has immediate effect without waiting for the token to refresh.</p>
+<h2>What this means for product design</h2>
+<p>Once the membership model is in place, the product gets new affordances. Invite flows: a senior partner can invite a client user into an engagement with a specific role, time-bounded to the engagement. Revocation flows: on engagement delivery, all client-side memberships are automatically set to read-only; on engagement closure, all memberships are revoked. Membership audit log: every membership change is logged, queryable, and shown on the engagement's history. Cross-engagement senior partner dashboards: the SP sees all engagements they're a member of, across all client tenants, in one view.</p>
+<p>None of this would be possible with the one-user-one-tenant model. Or rather, all of it would be possible but implemented as hacks that don't quite work and accumulate technical debt. The clean architecture is more work up front and dramatically less work downstream.</p>
+<h2>The broader point</h2>
+<p>SaaS multi-tenancy models were designed for product companies where one user lives in one organisation. Service-economy products - agencies, consultancies, fractional operators, auditors - need a fundamentally different access model because the work itself crosses organisational boundaries. A platform serving these markets that inherits the standard multi-tenant schema is signing up for years of retrofitting.</p>
+<p>The diagnostic is simple: if your users routinely work across multiple customer organisations as part of their job, the standard multi-tenant model is wrong for you. Don't patch. Rebuild. The schema-level fix is painful once; the patch-level approach is painful forever. Take the pain early and build on a model that matches how your users actually work.</p>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <a href="/" class="footer-logo">
+          <img src="/images/logo.svg" alt="Infoscend" height="28"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='inline';">
+          <span class="wordmark" style="display:none;">INFOSCEND</span>
+        </a>
+        <span class="footer-copy">&copy; 2026 Infoscend. All rights reserved.</span>
+      </div>
+      <a href="mailto:contact@infoscend.com" class="footer-email">contact@infoscend.com</a>
+    </div>
+  </div>
+</footer>
+<script>
+  var nav=document.getElementById('main-nav');
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+  var hamburger=document.getElementById('hamburger-btn'),overlay=document.getElementById('nav-overlay'),closeBtn=document.getElementById('overlay-close');
+  hamburger.addEventListener('click',function(){overlay.classList.add('open');document.body.style.overflow='hidden';});
+  closeBtn.addEventListener('click',closeOverlay);
+  function closeOverlay(){overlay.classList.remove('open');document.body.style.overflow='';};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&overlay.classList.contains('open'))closeOverlay();});
+</script>
+</body>
+</html>

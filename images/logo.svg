@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" width="480" height="80">
+  <!-- Lift mark (icon) at the left -->
+  <g transform="translate(0, 12)">
+    <rect x="0" y="40" width="18" height="7" rx="1" fill="#0E1116"/>
+    <rect x="20" y="22" width="18" height="7" rx="1" fill="#0E1116"/>
+    <rect x="40" y="4" width="18" height="7" rx="1" fill="#A86A2C"/>
+  </g>
+  <!-- Sigil wordmark -->
+  <text x="78" y="58" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="56" letter-spacing="-2" fill="#0E1116">info</text>
+  <text x="216" y="58" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="56" letter-spacing="-2" fill="#A86A2C">scend</text>
+</svg>
