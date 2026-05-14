@@ -30,9 +30,13 @@ Commercial...">
 RMD: Indonesia missed target again. What's going on?
 Commercial...",
     "author": {
-      "@type": "Organization",
-      "name": "Infoscend"
+      "@type": "Person",
+      "name": "Gaurav Joshi",
+      "jobTitle": "Founder",
+      "worksFor": {"@type": "Organization", "name": "Infoscend", "url": "https://infoscend.com"}
     },
+    "datePublished": "2026-04-12",
+    "dateModified": "2026-05-14",
     "publisher": {
       "@type": "Organization",
       "name": "Infoscend",
@@ -70,7 +74,7 @@ Commercial...",
   <span class="eyebrow">Commercial Operations</span>
   <h1>Fault Attribution: The Missing Commercial Capability</h1>
   <div class="article-hero-img">
-    <img src="/images/articles/fault-attribution-1.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <img src="/images/articles/fault-attribution-1.jpg" alt="Fault Attribution: The Missing Commercial Capability — Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
   </div>
 </section>
 <section class="article-body-section">
@@ -82,20 +86,20 @@ Commercial...",
 <p>Sales Manager: I wouldn't say it's the distributor exactly. It's coverage. We're not hitting enough outlets in the high-growth corridors.</p>
 <p>Marketing lead: I think we have a pricing problem. Our ASP is too high for the mid-market segment where the growth is.</p>
 <figure class="article-figure">
-  <img src="/images/articles/fault-attribution-2.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/fault-attribution-2.jpg" alt="Fault Attribution: The Missing Commercial Capability — supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
-<p>Operations lead: The issue is DSR productivity. Our field team metrics have been deteriorating since we restructured the routes.</p>
+<p>Operations lead: The issue is <a href="/articles/dsr-last-mile.html">DSR</a> productivity. Our field team metrics have been deteriorating since we restructured the routes.</p>
 <p>Everyone has a theory. Each theory is plausible. Each theory implies a different intervention. The RMD has no way to adjudicate between them, because the commercial stack - the CRM, the BI dashboards, the consulting reports - measures outcomes, not causes. They can show that Indonesia missed target. They cannot tell you why.</p>
 <p>This is the fundamental gap that defines the commercial execution category. No CRM currently closes it. No BI tool currently closes it. No consulting engagement closes it durably - the engagement might produce a point-in-time diagnosis, but the diagnosis decays within months as the market moves. What's missing is a system that continuously attributes commercial outcomes to their specific operational causes, at a granularity that would let the RMD distinguish between the four competing theories above.</p>
 <p>I call this capability fault attribution, borrowing the term from systems engineering where it has a precise meaning. In complex systems - power grids, distributed software, mechanical assemblies - fault attribution is the engineering discipline of routing an observed symptom to the specific component or event that caused it. When a grid experiences a voltage drop, fault attribution tells the operator which transformer failed, what time it failed, and what cascade of events followed. This is how complex systems are managed at scale.</p>
 <p>Commercial systems are complex in the same way. A missed target in Indonesia is the symptom. The fault - the specific failure that produced the symptom - could be in distributor capability, territory design, pricing, channel coverage, or field execution. Fault attribution for commercial systems means routing the symptom to the specific operational cause, with evidence sufficient to support the attribution.</p>
 <figure class="article-figure">
-  <img src="/images/articles/fault-attribution-3.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/fault-attribution-3.jpg" alt="Fault Attribution: The Missing Commercial Capability — supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <p><strong>This is technically achievable and almost nobody does it. Here is why it's hard, and what the architecture for doing it looks like.</strong></p>
 <p>Fault attribution requires three things working in concert.</p>
 <p><strong>First, an immutable event log.</strong> Every significant occurrence in the commercial system has to write a permanent, timestamped, actor-attributed row. A sell-in upload arrives. A DSR visit is completed. A distributor review meeting is held. A promotion goes live. A territory boundary is changed. Every event, append-only, never edited, attributable to a role and a time. This is the system's memory. Without it, attribution is impossible because the causal history doesn't exist in retrievable form.</p>
-<p><strong>Second, domain state tables.</strong> The current state of every operational entity - distributor, outlet, DSR, territory, promotion, joint business plan - has to be queryable at any moment. The state is updated by events, but the current state itself has to be available without reconstructing it from the full event history each time. This is the system's present. Without it, attribution is slow - every question requires a full replay of history.</p>
+<p><strong>Second, domain state tables.</strong> The current state of every operational entity - distributor, outlet, DSR, territory, promotion, <a href="/articles/jbp-as-database.html">joint business plan</a> - has to be queryable at any moment. The state is updated by events, but the current state itself has to be available without reconstructing it from the full event history each time. This is the system's present. Without it, attribution is slow - every question requires a full replay of history.</p>
 <p><strong>Third, an expectation and gap engine.</strong> Client-configured rules defining what should happen, when, and at what threshold. Monthly distributor review meetings are expected. If March passes without one being logged, the gap engine flags it. A sell-out upload is expected weekly from each distributor. If it doesn't arrive, the gap engine flags it. A DSR route is expected to have at least 10 visits per day. If actual falls below threshold, the gap engine flags it. This is the system's active comparator between intention and reality.</p>
 <p>When a symptom appears - Indonesia missed target - the attribution engine queries these three layers together. It reconstructs the operational state of the territory at the time the target was missed. It identifies gaps between expected and actual activity during the relevant period. It traces specific events that triggered or failed to trigger. The output is not "Indonesia missed target because of distributor capability" - it's "Indonesia missed target during weeks 32 through 41 of the year. During that period: DSR route coverage in East Java dropped from 85% to 58% average. Distributor X's working capital submission for week 30 reported a shortfall that was not escalated. The expected reorder cycle on SKUs 4, 7, and 12 broke down starting week 33. Sell-out data was submitted late or incomplete for weeks 34 through 38. The downstream effect is visible in the territory's monthly volume from week 35 onward."</p>
 <p>That's attribution at operational granularity. The RMD reading that output doesn't have four competing theories to adjudicate. They have a single causal thread with specific events attached. They can intervene at the specific points in the thread - unblock Distributor X's working capital, escalate DSR coverage in East Java, fix the sell-out submission compliance - rather than making an organization-wide bet on which theory is right.</p>

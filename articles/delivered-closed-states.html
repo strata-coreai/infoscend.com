@@ -24,9 +24,13 @@
     "headline": "Two States, Not One - Delivered vs Closed",
     "description": "Two States, Not One - Delivered vs Closed",
     "author": {
-      "@type": "Organization",
-      "name": "Infoscend"
+      "@type": "Person",
+      "name": "Gaurav Joshi",
+      "jobTitle": "Founder",
+      "worksFor": {"@type": "Organization", "name": "Infoscend", "url": "https://infoscend.com"}
     },
+    "datePublished": "2026-04-12",
+    "dateModified": "2026-05-14",
     "publisher": {
       "@type": "Organization",
       "name": "Infoscend",
@@ -64,7 +68,7 @@
   <span class="eyebrow">Engagement Design</span>
   <h1>Two States, Not One - Delivered vs Closed</h1>
   <div class="article-hero-img">
-    <img src="/images/articles/delivered-closed-states-1.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <img src="/images/articles/delivered-closed-states-1.jpg" alt="Two States, Not One - Delivered vs Closed — Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
   </div>
 </section>
 <section class="article-body-section">
@@ -77,7 +81,7 @@
 <p>The real arc of a consulting engagement has a third state that neither the contract nor the typical software model captures. Between delivery and close, there's a period - usually sixty to a hundred and twenty days - when the engagement has technically ended but the client team is actively using the outputs. They're running territory filters to prepare internal presentations. They're generating pitch decks to brief new distributors. They're exporting Excel models to share with the finance team. They're circulating the Ways of Working document internally. The consultants aren't doing new analytical work, but the client is extracting operational value from the work that was done.</p>
 <p>If the software flips to "closed" the moment the final invoice is sent, you lock the client out of exactly the tools they paid for at the exact moment they're proving the engagement's value to their wider organisation. You transform an asset into a memory right when it should be a flywheel. And because the value-extraction phase is when internal stakeholders who weren't in the engagement meet the outputs for the first time, you're also blocking the natural moment when the next module sells itself. The new Commercial Director who inherits the project, the Regional MD who was sceptical and is now convinced, the CFO who wants to see the model - none of them can access what's been built.</p>
 <figure class="article-figure">
-  <img src="/images/articles/delivered-closed-states-2.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/delivered-closed-states-2.jpg" alt="Two States, Not One - Delivered vs Closed — supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <h2>Two states, not one</h2>
 <p>The fix is to separate delivery from closure. Delivered is an automatic state - triggered when the final deck is generated and signed off. The senior partner's active work is done. Formula inputs are locked, so no one can edit the assumptions underlying the delivered analysis. But the client team gets full read access. They can run scenarios against the locked assumptions. They can generate new pitch decks from the template. They can export Excel models with their own filters. They can regenerate the Ways of Working document for new distributors. The work is done, but the outputs remain live.</p>
@@ -87,13 +91,13 @@
 <p>The one-state model is an inheritance from project management tooling. Project management tools were designed for product delivery - you build something, you ship it, it exists in the world independently of the project team, the project closes. That model works when the deliverable is a thing that can live on its own. It doesn't work when the deliverable is an analytical model that exists inside the software that generated it.</p>
 <p>Consulting engagements are the latter case, and so is most modern B2B work. Increasingly, the deliverable isn't a report - it's a living model inside a platform, and the platform is where the value is extracted. When you model the engagement's lifecycle as if the deliverable were a report (one-state: active or archived), you cut off the extraction period. When you model it as a living model (two-state: delivered and closed, with an extraction period in between), you let the engagement do its full work.</p>
 <figure class="article-figure">
-  <img src="/images/articles/delivered-closed-states-3.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/delivered-closed-states-3.jpg" alt="Two States, Not One - Delivered vs Closed — supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <h2>Implications for pricing and contract design</h2>
 <p>Once you've accepted the two-state model, a few things follow. The contract needs to specify both dates - delivery and close - and the pricing can be structured differently for the two phases. Delivery is priced on the analytical work; the extraction period is priced on platform access. A ninety-day extraction period is included in the standard engagement fee; a twelve-month extraction period is an add-on. A permanent extraction period (the engagement never closes, the client retains indefinite read access to the outputs) is priced as an ongoing subscription that begins when the delivery phase ends.</p>
 <p>This pricing structure accidentally creates the upsell motion for the next module. A client who's valuing the extraction period enough to extend it is a client who's ready to hear about Module 2 - the live workspace that would turn the extraction period into an ongoing operational relationship. The pricing and the product roadmap align naturally, because both are shaped by how the client actually uses the work.</p>
 <h2>What this looks like in the software</h2>
-<p>Concretely, the engagement phase enum includes a "delivered" state that sits between "synthesis" (the final analytical phase before deck generation) and "closed" (the archival state). Delivery is triggered automatically when deck generation completes successfully. Closure is a manual action exposed only to the senior partner or a platform admin, with a confirmation modal and an audit log entry. Between the two, the live workspace is accessible - the screen that client teams use after delivery to run filters, generate pitch decks, and export models.</p>
+<p>Concretely, the engagement phase enum includes a "delivered" state that sits between "synthesis" (the final analytical phase before deck generation) and "closed" (the archival state). Delivery is triggered automatically when deck generation completes successfully. Closure is a manual action exposed only to the senior partner or a platform admin, with a confirmation modal and an <a href="/articles/audit-log-product.html">audit log</a> entry. Between the two, the live workspace is accessible - the screen that client teams use after delivery to run filters, generate pitch decks, and export models.</p>
 <p>The live workspace's functionality is deliberately narrow: view the analysis, run territory filters, generate the pitch deck, export the Excel model. No new analytical work, because the assumptions are locked. No distributor audits, because that's Module 2. No field research inputs, because that's Module 3. Just the outputs of the engagement, kept live, with a clean UI that makes it obvious what's available and what requires a new engagement to unlock.</p>
 <p>The narrowness is a feature, not a limitation. It makes the extraction period sustainable operationally - no new data flows in, no confidence levels can shift, no formulas can change. It's a read layer on a locked model. And because the layer is a product, not a document, it can do things a PDF never could: filter, regenerate, export, share. That's the flywheel.</p>
   </div>

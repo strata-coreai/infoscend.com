@@ -24,9 +24,13 @@
     "headline": "Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug",
     "description": "Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug",
     "author": {
-      "@type": "Organization",
-      "name": "Infoscend"
+      "@type": "Person",
+      "name": "Gaurav Joshi",
+      "jobTitle": "Founder",
+      "worksFor": {"@type": "Organization", "name": "Infoscend", "url": "https://infoscend.com"}
     },
+    "datePublished": "2026-04-12",
+    "dateModified": "2026-05-14",
     "publisher": {
       "@type": "Organization",
       "name": "Infoscend",
@@ -64,7 +68,7 @@
   <span class="eyebrow">Architecture</span>
   <h1>Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug</h1>
   <div class="article-hero-img">
-    <img src="/images/articles/cross-tenant-membership-model-1.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <img src="/images/articles/cross-tenant-membership-model-1.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug — Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
   </div>
 </section>
 <section class="article-body-section">
@@ -79,7 +83,7 @@
 <p>Workaround three: senior partners are given "super-user" access that breaks tenant isolation at the auth layer. This is brittle, security-theatrical, and creates audit nightmares.</p>
 <p>None of these are fixes. They're compromises that encode the wrong assumption - that a user belongs to one tenant - into workarounds that leak implementation details into the user experience.</p>
 <figure class="article-figure">
-  <img src="/images/articles/cross-tenant-membership-model-2.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/cross-tenant-membership-model-2.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug — supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <h2>The membership model</h2>
 <p>The real fix is architectural. The schema needs a membership layer that models the many-to-many relationship between users and engagements, independent of tenant. Concretely:</p>
@@ -88,11 +92,11 @@
 <h2>Why most platforms retrofit this badly</h2>
 <p>Every platform I've seen eventually confronts this problem. The usual response is to patch rather than rebuild. Add a "workspace selector" that lets users switch between tenants. Add "external user" flags on the user record. Add ad hoc cross-tenant permissions that are checked inline in specific routes. Each patch solves an immediate problem. Together, they accumulate into an auth system that nobody fully understands, audits can't reliably certify, and security incidents are bound to eventually expose.</p>
 <p>The reason the retrofit is bad is that the original schema encoded a structural assumption - users have exactly one tenant - and the patches don't remove the assumption; they work around it. The middleware still expects tenant-scoped access. The row-level security policies still assume tenant membership is the primary access control. The UI still treats tenant as a global context. The patches force the system to pretend the assumption holds while secretly admitting it doesn't. Every new feature has to navigate the pretence, and every new feature has a chance of introducing an access-control bug because the rules are no longer coherent.</p>
-<p>The right fix is to redesign the schema so the membership layer is primary. This is a multi-week architectural project, not a bug fix. It touches auth middleware, row-level security, UI context, Auth0 claims structure, and every route's access-control logic. It also touches product design - the UX of switching engagements, the permissions UI for inviting and revoking client users, the audit log that tracks membership changes. Everything downstream of the schema has to adapt.</p>
+<p>The right fix is to redesign the schema so the membership layer is primary. This is a multi-week architectural project, not a bug fix. It touches auth middleware, row-level security, UI context, Auth0 claims structure, and every route's access-control logic. It also touches product design - the UX of switching engagements, the permissions UI for inviting and revoking client users, the <a href="/articles/audit-log-product.html">audit log</a> that tracks membership changes. Everything downstream of the schema has to adapt.</p>
 <h2>The Auth0 implications</h2>
 <p>In our case, a specific wrinkle emerged around Auth0 claims. The standard pattern is for the JWT to carry a user's tenant ID and role, and for the middleware to trust the JWT. With engagement membership as a separate concept, the JWT can't simply carry "tenant X, role Y" - it needs to carry the user's home tenant, their home role (if any), and the set of engagements they're a member of (with their role per engagement). Encoding this in the JWT keeps the token size bounded if a user is a member of many engagements.</p>
 <figure class="article-figure">
-  <img src="/images/articles/cross-tenant-membership-model-3.jpg" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/cross-tenant-membership-model-3.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug — supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <p>One approach: the JWT carries only the user's home tenant and a "has engagement memberships" flag. The middleware, on each request to an engagement-scoped route, fetches the user's current engagement memberships from the database and checks against the requested engagement. This is an extra database call per request but keeps the token clean. For performance, engagement memberships can be cached in Redis with a short TTL, invalidated on any membership change.</p>
 <p>A second approach: the JWT carries a compressed representation of engagement memberships - engagement IDs and roles, encoded as a packed array. The middleware doesn't need the database call; it can validate engagement access purely from the token. Faster but requires token refresh whenever memberships change, which can be problematic for long-lived sessions.</p>
