@@ -192,18 +192,56 @@
   </div>
 </section>
 
-<!-- ========== PRODUCT BAND 1 — AI Insights ========== -->
-<section class="product-band">
+<!-- ========== PRODUCT BAND 1 — AI Insights (dashboard mockup) ========== -->
+<section class="product-band" id="insights">
   <div class="shell">
     <div class="grid reveal">
       <div class="copy">
         <span class="eyebrow">AI insights &amp; analytics</span>
-        <h2>Executive intelligence that drives action.</h2>
-        <p>Performance command centre. Distributor health scoring. Attrition risk prediction. Demand forecasting. Natural language queries across the entire dataset. AI insight cards surface what matters before you ask.</p>
-        <a href="#" class="btn-secondary">See the AI layer →</a>
+        <h2>Executive intelligence. Written in board-meeting voice.</h2>
+        <p>Every morning, AI reads your entire commercial dataset and writes two sentences that name what's dragging your quarter. Not a wall of charts. Not a dashboard you have to interpret. A diagnosis, an alert, and a recommended action — ordered by what matters to you, this week.</p>
+        <p style="font-family:var(--font-mono); font-size:13px; color:var(--slate-500); margin-bottom:24px;">Performance command centre · distributor health scoring · attrition risk · demand forecast · NL query · scheduled reports</p>
+        <a href="#personas" class="btn-secondary">See the AI layer →</a>
       </div>
-      <div>
-        <img src="/images/performance-command-centre.png" alt="Performance Command Centre — Infoscend AI insights dashboard" loading="lazy">
+      <div class="mockup-dash" aria-label="Executive dashboard mockup showing AI commentary, KPI tiles, and strategic alerts">
+        <div class="dash-banner">
+          <span class="spark">◆</span>
+          <span>We are at <strong>39% of the month</strong>, yet secondary sales project only <strong>7% of the JBP target</strong>. Overdue receivables at <strong>MYR 1,503,029</strong>. Review distributor performance and address the credit situation.</span>
+        </div>
+        <div class="dash-kpis">
+          <div class="dash-kpi"><div class="l">JBP attainment</div><div class="v">29.3%</div></div>
+          <div class="dash-kpi danger"><div class="l">Performance gap</div><div class="v">-93.1%</div></div>
+          <div class="dash-kpi warn"><div class="l">Distributors at risk</div><div class="v">2</div></div>
+          <div class="dash-kpi"><div class="l">Active campaigns</div><div class="v">2</div></div>
+          <div class="dash-kpi"><div class="l">Top distributor drag</div><div class="v" style="font-size:11px; letter-spacing:0;">Penang Wholesale</div></div>
+          <div class="dash-kpi"><div class="l">GM profit MTD</div><div class="v" style="color:#6B7280;">—</div></div>
+        </div>
+        <div class="dash-row">
+          <div class="dash-card">
+            <h6>Business health</h6>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div><div class="bg-num">13%</div><div class="bg-label">Market position</div></div>
+              <div><div class="bg-num">3</div><div class="bg-label">Healthy distributors</div></div>
+              <div><div class="bg-num" style="color:var(--copper-warm);">292</div><div class="bg-label">Whitespace outlets</div></div>
+              <div><div class="bg-num" style="color:#DC5A45;">41</div><div class="bg-label">Outlets at churn risk</div></div>
+            </div>
+          </div>
+          <div class="dash-card alerts">
+            <h6>Strategic alerts</h6>
+            <div class="dash-alert danger">
+              <div><div class="a-name">Performance gap</div><div class="a-desc">Sales trending 93% below pace. Projected MYR 156,827 vs target 2,277,379.</div></div>
+              <div class="a-tag">-93%</div>
+            </div>
+            <div class="dash-alert">
+              <div><div class="a-name">Competitive threat</div><div class="a-desc">Shell — 3 moves across 1 territory. Primary: promotion.</div></div>
+              <div class="a-tag">3 reports</div>
+            </div>
+            <div class="dash-alert">
+              <div><div class="a-name">Distributor decline</div><div class="a-desc">Selangor Sub-Dist Sdn Bhd is 97% below last month's pace.</div></div>
+              <div class="a-tag">3 declining</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -220,36 +258,65 @@
         <div class="num">01</div>
         <h3>Close the loop</h3>
         <p>Field intelligence flows back to HQ. AI-captured. GPS-verified. The shelf becomes a sensor, not a black box. The disconnect between strategy and execution disappears.</p>
-        <a href="#" class="arrow">See how →</a>
+        <a href="#the-loop" class="arrow">See how →</a>
       </div>
       <div class="outcome">
         <div class="num">02</div>
         <h3>See what consultants can't</h3>
         <p>Continuous diagnostic from live data — not the $500K snapshot that's stale before the deck is bound. ROIC-based viability. Anomaly detection. Real ground truth.</p>
-        <a href="#" class="arrow">See how →</a>
+        <a href="#insights" class="arrow">See how →</a>
       </div>
       <div class="outcome">
         <div class="num">03</div>
         <h3>Make adoption inevitable</h3>
         <p>The field app is faster than the rep's notebook. Offline-first. One-thumb. Multilingual. Adoption is a design problem, not a training one — so we designed for the field, not the boardroom.</p>
-        <a href="#" class="arrow">See how →</a>
+        <a href="#dsr" class="arrow">See how →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== PRODUCT BAND 2 — Competitive Intel (REVERSE) ========== -->
-<section class="product-band reverse">
+<!-- ========== PRODUCT BAND 2 — Competitive Intel · animated flow ========== -->
+<section class="product-band reverse" id="intel">
   <div class="shell">
     <div class="grid reveal">
       <div>
-        <img src="/images/intel-queue-overview.png" alt="Competitive intelligence queue — AI-extracted pricing data" loading="lazy">
+        <div class="mockup-flow" aria-label="Photo to price to action — animated flow">
+          <div class="flow-stages">
+            <div class="flow-stage">
+              <div class="step">01 · CAPTURE</div>
+              <div class="mini-photo" aria-hidden="true"></div>
+              <h5>Field rep snaps the pricelist</h5>
+              <p>One tap inside the SFA app. Offline-safe. Auto-tagged to outlet + visit.</p>
+            </div>
+            <div class="flow-stage">
+              <div class="step">02 · EXTRACT</div>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/><path d="M10 7h4M10 17h4M7 10v4M17 10v4"/></svg>
+              <h5>AI reads the price grid</h5>
+              <p>OCR + multimodal LLM. Each row matched to your SKU catalogue with confidence score.</p>
+            </div>
+            <div class="flow-stage">
+              <div class="step">03 · ANALYSE</div>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <h5>Anomaly vs pricing matrix</h5>
+              <p>Validated against your aspiration matrix. Tier shift detected. Magnitude scored.</p>
+            </div>
+            <div class="flow-stage">
+              <div class="step">04 · ACT</div>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+              <h5>Counter-offer ready</h5>
+              <p>Pre-drafted promo brief lands in the Head of Brand queue. One click to launch.</p>
+            </div>
+          </div>
+          <div class="flow-pipe">PHOTO → EXTRACT → ANOMALY → COUNTER-CAMPAIGN  ·  &lt; 4 MIN</div>
+        </div>
       </div>
       <div class="copy">
         <span class="eyebrow">Competitive intelligence</span>
-        <h2>Photo to price. Photo to anomaly. Photo to counter-offer.</h2>
-        <p>Field reps photograph competitor price lists. AI extracts prices, matches to your catalogue, validates against baselines, and flags anomalies. The pricing aspiration matrix tells you exactly where you stand vs. every competitor, at every tier.</p>
-        <a href="#" class="btn-secondary">See intelligence in action →</a>
+        <h2>Photo to price. Price to anomaly. Anomaly to counter-offer.</h2>
+        <p>Your reps already photograph competitor pricelists out of habit. We turn that habit into a continuous signal — extracted, matched, scored, and turned into a counter-campaign brief before the day ends.</p>
+        <p style="font-family:var(--font-mono); font-size:13px; color:var(--slate-500); margin-bottom:24px;">Photo-to-price AI · perceptual deduplication · pricing aspiration matrix · anomaly triage · auto counter-brief</p>
+        <a href="#personas" class="btn-secondary">See intelligence in action →</a>
       </div>
     </div>
   </div>
@@ -272,7 +339,7 @@
           <li>WAC inventory · multi-warehouse</li>
           <li>Credit limit control · approvals</li>
         </ul>
-        <a href="#" class="more">Explore the DMS →</a>
+        <a href="#platform" class="more">Explore the DMS →</a>
       </div>
       <div class="module">
         <div class="label">02 · Field</div>
@@ -283,7 +350,7 @@
           <li>Offline-first · one-thumb capture</li>
           <li>Structured refusal capture · voice notes</li>
         </ul>
-        <a href="#" class="more">Explore the SFA →</a>
+        <a href="#dsr" class="more">Explore the SFA →</a>
       </div>
       <div class="module">
         <div class="label">03 · Intel</div>
@@ -294,7 +361,7 @@
           <li>Anomaly detection · auto-triage</li>
           <li>Pricing aspiration matrix</li>
         </ul>
-        <a href="#" class="more">Explore Intelligence →</a>
+        <a href="#intel" class="more">Explore Intelligence →</a>
       </div>
       <div class="module">
         <div class="label">04 · Analytics</div>
@@ -305,7 +372,7 @@
           <li>Demand forecast · scheduled reports</li>
           <li>Insight cards before you ask</li>
         </ul>
-        <a href="#" class="more">Explore Insights →</a>
+        <a href="#insights" class="more">Explore Insights →</a>
       </div>
       <div class="module">
         <div class="label">05 · Marketing</div>
@@ -316,7 +383,7 @@
           <li>Channel adapters · creative library</li>
           <li>Full campaign attribution</li>
         </ul>
-        <a href="#" class="more">Explore Marketing →</a>
+        <a href="#personas" class="more">Explore Marketing →</a>
       </div>
       <div class="module">
         <div class="label">06 · Loyalty</div>
@@ -327,24 +394,70 @@
           <li>Reward catalogue · trade schemes</li>
           <li>OTP auth · 32 screens</li>
         </ul>
-        <a href="#" class="more">Explore Loyalty →</a>
+        <a href="#platform" class="more">Explore Loyalty →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== PRODUCT BAND 3 — SFA Video ========== -->
+<!-- ========== PRODUCT BAND 3 — WhatsApp Orders (the bridge moment) ========== -->
 <section class="product-band">
   <div class="shell">
     <div class="grid reveal">
       <div class="copy">
+        <span class="eyebrow">WhatsApp-native order intake</span>
+        <h2>Your outlets don't fill out portals. They WhatsApp you.</h2>
+        <p>In every emerging market that distributes through traditional trade, the order doesn't arrive as an EDI feed or a portal submission. It arrives as a voice note, a message in mixed languages, a photo of a handwritten chit. Infoscend reads them. All of them. And turns them into structured, confidence-scored, approve-or-reject drafts before your finance team opens their laptops.</p>
+        <p style="font-family:var(--font-mono); font-size:13px; color:var(--slate-500); margin-bottom:24px;">Bahasa · English · Mandarin · Hindi · Tagalog · Vietnamese · code-switched mixes · voice notes · photo chits</p>
+        <a href="#adoption" class="btn-secondary">See how adoption flips →</a>
+      </div>
+      <div>
+        <div class="mockup-wa" aria-label="WhatsApp message parsed into a structured Infoscend order draft">
+          <div class="wa-msg">
+            <div class="wa-label">◀ Incoming · WhatsApp · Bangsar Gold</div>
+            <div class="wa-bubble">
+              Selamat pagi. Order minggu ini:<br>
+              Eco Fresh 500ml — 48 biji<br>
+              Eco Clean spray — 12 biji<br>
+              kesemua untuk kedai saya
+              <span class="stamp">07:42  ·  Bahasa Melayu</span>
+            </div>
+          </div>
+          <div class="wa-parsed">
+            <div class="wa-parsed-head">
+              <span class="ord-id">SO-202602-00032</span>
+              <span class="wa-conf">✓ 88% confidence</span>
+            </div>
+            <table>
+              <thead><tr><th>Product</th><th style="text-align:right;">Qty</th><th style="text-align:right;">Price</th></tr></thead>
+              <tbody>
+                <tr><td>Coolant Concentrate 1L</td><td class="num">48</td><td class="num">29.75</td></tr>
+                <tr><td>Engine Flush 300ml</td><td class="num">12</td><td class="num">23.80</td></tr>
+              </tbody>
+            </table>
+            <div class="wa-actions">
+              <span class="wa-btn approve">✓ Approve</span>
+              <span class="wa-btn reject">✕ Reject</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRODUCT BAND 4 — SFA Video ========== -->
+<section class="product-band reverse">
+  <div class="shell">
+    <div class="grid reveal">
+      <div>
+        <video src="/videos/sfa-field-app.mp4" autoplay muted loop playsinline poster="/images/training-hub.png"></video>
+      </div>
+      <div class="copy">
         <span class="eyebrow">Sales force automation</span>
         <h2>Built for the rep on the beat, not the demo in the boardroom.</h2>
         <p>Offline-first on every screen. AI pitch recommendations before every outlet call. Voice journaling. Capture an order in 12 seconds. The field app is faster than the rep's notebook — that is how adoption happens.</p>
-        <a href="#" class="btn-secondary">See the field app →</a>
-      </div>
-      <div>
-        <video src="/videos/sfa-field-app.mp4" autoplay muted loop playsinline poster="/images/training-hub.png"></video>
+        <a href="#dsr" class="btn-secondary">See the field app →</a>
       </div>
     </div>
   </div>
