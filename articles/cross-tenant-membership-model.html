@@ -68,7 +68,7 @@
   <span class="eyebrow">Architecture</span>
   <h1>Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug</h1>
   <div class="article-hero-img">
-    <img src="/images/articles/cross-tenant-membership-model-1.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug — Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <img src="/images/articles/cross-tenant-membership-model-1.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug - Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
   </div>
 </section>
 <section class="article-body-section">
@@ -83,7 +83,7 @@
 <p>Workaround three: senior partners are given "super-user" access that breaks tenant isolation at the auth layer. This is brittle, security-theatrical, and creates audit nightmares.</p>
 <p>None of these are fixes. They're compromises that encode the wrong assumption - that a user belongs to one tenant - into workarounds that leak implementation details into the user experience.</p>
 <figure class="article-figure">
-  <img src="/images/articles/cross-tenant-membership-model-2.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug — supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/cross-tenant-membership-model-2.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug - supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <h2>The membership model</h2>
 <p>The real fix is architectural. The schema needs a membership layer that models the many-to-many relationship between users and engagements, independent of tenant. Concretely:</p>
@@ -96,7 +96,7 @@
 <h2>The Auth0 implications</h2>
 <p>In our case, a specific wrinkle emerged around Auth0 claims. The standard pattern is for the JWT to carry a user's tenant ID and role, and for the middleware to trust the JWT. With engagement membership as a separate concept, the JWT can't simply carry "tenant X, role Y" - it needs to carry the user's home tenant, their home role (if any), and the set of engagements they're a member of (with their role per engagement). Encoding this in the JWT keeps the token size bounded if a user is a member of many engagements.</p>
 <figure class="article-figure">
-  <img src="/images/articles/cross-tenant-membership-model-3.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug — supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/cross-tenant-membership-model-3.jpg" alt="Cross-Tenant Access Is a Real Schema Problem, Not a UX Bug - supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <p>One approach: the JWT carries only the user's home tenant and a "has engagement memberships" flag. The middleware, on each request to an engagement-scoped route, fetches the user's current engagement memberships from the database and checks against the requested engagement. This is an extra database call per request but keeps the token clean. For performance, engagement memberships can be cached in Redis with a short TTL, invalidated on any membership change.</p>
 <p>A second approach: the JWT carries a compressed representation of engagement memberships - engagement IDs and roles, encoded as a packed array. The middleware doesn't need the database call; it can validate engagement access purely from the token. Faster but requires token refresh whenever memberships change, which can be problematic for long-lived sessions.</p>
@@ -120,7 +120,7 @@
         </a>
         <span class="footer-copy">&copy; 2026 Infoscend. All rights reserved.</span>
       </div>
-      <a href="mailto:contact@infoscend.com" class="footer-email">contact@infoscend.com</a>
+      <a href="mailto:gaurav@infoscend.com" class="footer-email">gaurav@infoscend.com</a>
     </div>
   </div>
 </footer>

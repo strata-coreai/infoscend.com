@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://infoscend.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority><lastmod>2026-05-14</lastmod></url>
-    <url><loc>https://infoscend.com/articles/</loc><changefreq>weekly</changefreq><priority>0.9</priority><lastmod>2026-05-14</lastmod></url>
+  <url><loc>https://infoscend.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority><lastmod>2026-06-13</lastmod></url>
+    <url><loc>https://infoscend.com/articles/</loc><changefreq>weekly</changefreq><priority>0.9</priority><lastmod>2026-06-13</lastmod></url>
   <!-- Collection 1: Ten Arguments from Building a Distributor Intelligence Platform -->
   <url><loc>https://infoscend.com/articles/receivables-trap.html</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-05-14</lastmod></url>
   <url><loc>https://infoscend.com/articles/ebitda-roic.html</loc><changefreq>monthly</changefreq><priority>0.8</priority><lastmod>2026-05-14</lastmod></url>

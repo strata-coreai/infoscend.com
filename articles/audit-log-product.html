@@ -68,7 +68,7 @@
   <span class="eyebrow">Data Durability</span>
   <h1>The Audit Log Is the Product, Not the Paper Trail</h1>
   <div class="article-hero-img">
-    <img src="/images/articles/audit-log-product-1.jpg" alt="The Audit Log Is the Product, Not the Paper Trail — Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <img src="/images/articles/audit-log-product-1.jpg" alt="The Audit Log Is the Product, Not the Paper Trail - Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
   </div>
 </section>
 <section class="article-body-section">
@@ -85,7 +85,7 @@
 <p>A year later, a competitor enters the market and a regional restructure is proposed. The RMD asks: what was our confidence level on the market size estimate for Johor when we designed this territory? The answer matters because if the confidence was LOW (the field research hadn't happened yet), the territory's viability verdict was conditional on later upgrades that may or may not have occurred. The answer is unknowable from the deck.</p>
 <p>Every one of these scenarios is the engagement's ongoing ROI being eroded by missing memory. The engagement's value depended on its decisions being trusted. Trust depends on defensibility. Defensibility depends on the ability to answer "why did we decide this?" in the same language, with the same specificity, that was available at the moment of the decision.</p>
 <figure class="article-figure">
-  <img src="/images/articles/audit-log-product-2.jpg" alt="The Audit Log Is the Product, Not the Paper Trail — supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/audit-log-product-2.jpg" alt="The Audit Log Is the Product, Not the Paper Trail - supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <p>The audit log, properly constructed, answers every one of those questions. Not because it's a nice-to-have for compliance, but because it's the engagement's working memory.</p>
 <h2>What a proper event captures</h2>
@@ -100,7 +100,7 @@
 <p>The engineering discipline that makes this work is writing the event before the mutation, never the other way around. Most systems do it the other way. The UI calls a mutation endpoint. The endpoint updates the database. If the update succeeds, an audit log entry is written. If the log write fails, the action has already happened and the log is incomplete.</p>
 <p>The correct pattern inverts this. The endpoint validates the action, writes the platform event inside the same transaction as the mutation, and only then commits both together. If the event write fails, the transaction rolls back and the mutation doesn't happen either. The log and the state change are atomic. There is no window in which the state has changed but the log hasn't.</p>
 <figure class="article-figure">
-  <img src="/images/articles/audit-log-product-3.jpg" alt="The Audit Log Is the Product, Not the Paper Trail — supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/audit-log-product-3.jpg" alt="The Audit Log Is the Product, Not the Paper Trail - supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <p>This is slightly more complex at the code level - the event schema has to be built into every endpoint, the transaction management has to be right - but the guarantee it provides is dramatically stronger. Every state you observe in the database has a corresponding log entry. Every log entry has a corresponding state. The two are never out of sync. The audit log isn't a reflection of reality; it's a definition of it.</p>
 <h2>Why most software doesn't do this</h2>
@@ -127,7 +127,7 @@
         </a>
         <span class="footer-copy">&copy; 2026 Infoscend. All rights reserved.</span>
       </div>
-      <a href="mailto:contact@infoscend.com" class="footer-email">contact@infoscend.com</a>
+      <a href="mailto:gaurav@infoscend.com" class="footer-email">gaurav@infoscend.com</a>
     </div>
   </div>
 </footer>

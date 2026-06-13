@@ -68,7 +68,7 @@
   <span class="eyebrow">Product Architecture</span>
   <h1>Territories Are Not the Unit of Analysis - Scenarios Are</h1>
   <div class="article-hero-img">
-    <img src="/images/articles/scenarios-unit-analysis-1.jpg" alt="Territories Are Not the Unit of Analysis - Scenarios Are — Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <img src="/images/articles/scenarios-unit-analysis-1.jpg" alt="Territories Are Not the Unit of Analysis - Scenarios Are - Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
   </div>
 </section>
 <section class="article-body-section">
@@ -81,7 +81,7 @@
 <p>The formulas didn't care. R1 was calculated per territory by summing district-level addressable volume. If a district appeared in two territories, its full R1 potential was counted in both. The national sum of territory R1s exceeded the national R1 - sometimes by 15%, sometimes by more. Every downstream calculation inherited the error. Distributor P&L overstated revenue potential. Return on invested capital looked higher than it was. Territories that should have been flagged as "at risk" showed as "viable" because the inflated R1 made the numbers work.</p>
 <p>The fix isn't complicated - de-duplicate districts across territories, flag overlaps, force the senior partner to make a call. But the underlying question is harder. What is the right unit of analysis for route-to-market design? A territory, considered alone, doesn't answer a business question. A CEO doesn't ask "is Klang Valley viable?" They ask "if I deploy these four territories covering 62% of my national market, what do I get, what does it cost, and how many distributors do I need?"</p>
 <figure class="article-figure">
-  <img src="/images/articles/scenarios-unit-analysis-2.jpg" alt="Territories Are Not the Unit of Analysis - Scenarios Are — supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/scenarios-unit-analysis-2.jpg" alt="Territories Are Not the Unit of Analysis - Scenarios Are - supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <h2>Problem two: no coherent coverage picture</h2>
 <p>The second problem was more fundamental. Looking at territories one at a time, you could never answer the coverage question. The platform had no concept of a territory set as a unit of analysis. You could export six territories to a spreadsheet and add them up by hand, but that's not a product - that's a worksheet. And the addition was wrong anyway, because of the double-counting problem.</p>
@@ -91,7 +91,7 @@
 <p>More than a technical fix, this changed how we thought about the product. A territory became a building block. A scenario became the commercial proposition. The SP's primary unit of decision-making shifted from "is this territory viable?" to "does this scenario deliver the aspiration?" Territories still matter - they're where the distributor P&L lives, where the <a href="/articles/dsr-last-mile.html">DSR</a> count is calculated, where the outlet archetypes are defined - but they're no longer the top-level unit of analysis. Scenarios are.</p>
 <p>The UI followed. The landing screen for an engagement now shows scenarios as cards: three MECE options, each showing territory count, national coverage percentage, distributor count, and aggregate viability summary. Clicking into a scenario reveals its territories. The territory list is no longer the first thing a user sees; it's the drill-down.</p>
 <figure class="article-figure">
-  <img src="/images/articles/scenarios-unit-analysis-3.jpg" alt="Territories Are Not the Unit of Analysis - Scenarios Are — supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/scenarios-unit-analysis-3.jpg" alt="Territories Are Not the Unit of Analysis - Scenarios Are - supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <h2>The broader pattern</h2>
 <p>This experience pointed at something more general. When you build a platform around the most obvious unit of data - in our case, the territory, because that's the thing you draw on a map - you often miss the unit that matches the actual business question. The business question here wasn't about individual territories; it was about coverage scenarios. The platform's first architecture encoded the wrong abstraction at the wrong level.</p>
@@ -113,7 +113,7 @@
         </a>
         <span class="footer-copy">&copy; 2026 Infoscend. All rights reserved.</span>
       </div>
-      <a href="mailto:contact@infoscend.com" class="footer-email">contact@infoscend.com</a>
+      <a href="mailto:gaurav@infoscend.com" class="footer-email">gaurav@infoscend.com</a>
     </div>
   </div>
 </footer>

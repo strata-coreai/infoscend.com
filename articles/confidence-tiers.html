@@ -68,7 +68,7 @@
   <span class="eyebrow">Data Quality</span>
   <h1>Confidence Tiers as a Commercial Discipline</h1>
   <div class="article-hero-img">
-    <img src="/images/articles/confidence-tiers-1.jpg" alt="Confidence Tiers as a Commercial Discipline — Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
+    <img src="/images/articles/confidence-tiers-1.jpg" alt="Confidence Tiers as a Commercial Discipline - Infoscend Knowledge Centre essay illustration" loading="lazy" onerror="this.parentElement.style.display='none'">
   </div>
 </section>
 <section class="article-body-section">
@@ -76,11 +76,11 @@
     <a href="/#knowledge" class="article-back">&larr; Back to Knowledge Center</a>
     <p>Most analytics platforms have a fundamental honesty problem, and it has nothing to do with accuracy of the underlying data. It has to do with the visual treatment of numbers.</p>
 <p>A dashboard shows a distributor's revenue at USD 4.2M, their gross margin at 18%, their outlet count at 840, their <a href="/articles/dsr-last-mile.html">DSR</a> productivity at 12 visits per day. Every number looks identical - same font, same weight, same styling. Every number conveys the same apparent confidence. The viewer treats all of them as equivalent inputs to their decision.</p>
-<p>But they are not equivalent. The revenue number comes from the tenant's ERP system - it is Tier 1 data, audited, clean, essentially error-free. The gross margin number is derived from ERP data combined with a landed-cost model - Tier 2, structurally sound but dependent on assumptions that may need updating. The outlet count comes from the distributor's self-report - Tier 3, field-derived, typically 20–40% overstated in my experience. The DSR productivity number is an AI estimate based on territory characteristics - Tier 4, a modeled value with no ground truth.</p>
+<p>But they are not equivalent. The revenue number comes from the tenant's ERP system - it is Tier 1 data, audited, clean, essentially error-free. The gross margin number is derived from ERP data combined with a landed-cost model - Tier 2, structurally sound but dependent on assumptions that may need updating. The outlet count comes from the distributor's self-report - Tier 3, field-derived, typically 20-40% overstated in my experience. The DSR productivity number is an AI estimate based on territory characteristics - Tier 4, a modeled value with no ground truth.</p>
 <p>The viewer who treats all four numbers identically is making decisions that rest on Tier 4 assumptions while feeling the confidence of Tier 1 data. This is how bad decisions get made in executive rooms where everyone is smart and everyone is misled by the interface.</p>
 <p>The fix is structural, not cosmetic. Every piece of data in the system carries a confidence tier as a first-class attribute. Every derived metric inherits the minimum confidence of its inputs. Every visualization shows the confidence tier next to the number, in a way that is immediately legible but not visually dominant. Every strategic conclusion carries a composite confidence badge that tells the viewer what basis of truth underlies the recommendation.</p>
 <figure class="article-figure">
-  <img src="/images/articles/confidence-tiers-2.jpg" alt="Confidence Tiers as a Commercial Discipline — supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/confidence-tiers-2.jpg" alt="Confidence Tiers as a Commercial Discipline - supporting visual 1" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <p>This is not a UX flourish. It is a commercial discipline with three downstream effects.</p>
 <p><strong>First, it changes which decisions get made and which get deferred.</strong> When the Commercial Director sees that a territory exit recommendation is built on Tier 3 outlet data and Tier 4 DSR productivity assumptions, they correctly pause. Not because the recommendation is wrong, but because the confidence basis isn't strong enough for the magnitude of the decision. Either they invest in upgrading the data - commission a field research pass, validate the outlet universe, measure actual DSR productivity - or they accept the decision with eyes open. Either outcome is better than the alternative, which is making a territory exit decision that feels confident because the dashboard presented it confidently.</p>
@@ -88,7 +88,7 @@
 <p><strong>Third, it creates a natural path for improving the system over time.</strong> A tenant who sees that their most important strategic recommendations rest on Tier 3 and Tier 4 inputs has a clear investment case for better data capture. Better field forms. Better DSR data submission. Better ERP-to-analytics pipelines. Each investment upgrades specific fields from lower to higher confidence tiers, and the effect compounds over time. Without visible confidence tiers, there is no visible gap between current data quality and adequate data quality - so no investment case gets made, and the dashboards keep lying with the same veneer of confidence forever.</p>
 <p><strong>The design of confidence tiers has a few principles worth being explicit about.</strong></p>
 <figure class="article-figure">
-  <img src="/images/articles/confidence-tiers-3.jpg" alt="Confidence Tiers as a Commercial Discipline — supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
+  <img src="/images/articles/confidence-tiers-3.jpg" alt="Confidence Tiers as a Commercial Discipline - supporting visual 2" loading="lazy" onerror="this.parentElement.style.display='none'">
 </figure>
 <p><strong>Tiers should be small in number and clearly defined.</strong> Four tiers is about right. More than four and the distinctions become unclear. Fewer than four and the tiers don't capture meaningful differences in data provenance. Tier 1 is source-of-truth data (ERP, audited financials). Tier 2 is structured data submission (template-based, validation-applied). Tier 3 is field-derived data (DSR reports, outlet visits, commercial team observation). Tier 4 is modeled or AI-estimated data (no ground truth, derived from proxies). These four cover almost every type of input a commercial analytics platform encounters.</p>
 <p><strong>Confidence must propagate through derivations.</strong> If a metric is calculated from three inputs at Tier 1, Tier 2, and Tier 4, the output is Tier 4. It cannot be higher than its weakest input. This rule is non-negotiable and has to be enforced by the system - manual assignment of confidence tiers invites exactly the confidence-inflation that the whole system is designed to prevent.</p>
@@ -128,7 +128,7 @@
         </a>
         <span class="footer-copy">&copy; 2026 Infoscend. All rights reserved.</span>
       </div>
-      <a href="mailto:contact@infoscend.com" class="footer-email">contact@infoscend.com</a>
+      <a href="mailto:gaurav@infoscend.com" class="footer-email">gaurav@infoscend.com</a>
     </div>
   </div>
 </footer>

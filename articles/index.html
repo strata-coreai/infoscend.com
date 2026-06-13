@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Knowledge Centre — Infoscend</title>
+<title>Knowledge Centre - Infoscend</title>
 <meta name="description" content="Practitioner essays on route-to-market strategy, distributor economics, and commercial intelligence software. 38 essays. Free.">
-<meta property="og:title" content="Infoscend Knowledge Centre — 38 practitioner essays">
+<meta property="og:title" content="Infoscend Knowledge Centre - 38 practitioner essays">
 <meta property="og:description" content="Distributor economics, route to market, field execution, AI & data, platform craft. The kind of material that costs $500K to commission. Free.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://infoscend.com/articles/">
@@ -17,30 +17,30 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <style>
-  .kc-hero { max-width: 1200px; margin: 0 auto; padding: 80px 48px 48px; border-bottom: 1px solid var(--hairline); }
-  .kc-hero h1 { font-family: var(--font-serif); font-weight: 400; font-style: italic; font-size: clamp(44px, 6vw, 72px); line-height: 1.05; letter-spacing: -.025em; margin: 18px 0 16px; max-width: 18ch; }
-  .kc-hero h1 .copper { color: var(--copper); }
-  .kc-hero p { font-size: 19px; line-height: 1.55; color: var(--slate-700); max-width: 660px; }
-  .kc-hero .meta { font-family: var(--font-mono); font-size: 13px; color: var(--slate-500); margin-top: 28px; }
+  .kc-hero { max-width: 1240px; margin: 0 auto; padding: 84px 48px 52px; border-bottom: 1px solid var(--line); }
+  .kc-hero h1 { font-family: var(--font-serif); font-weight: 400; font-style: italic; font-size: clamp(44px, 6vw, 72px); line-height: 1.05; letter-spacing: -.025em; margin: 18px 0 16px; max-width: 18ch; color: var(--bone); }
+  .kc-hero h1 .copper { color: var(--copper-br); }
+  .kc-hero p { font-size: 19px; line-height: 1.55; color: var(--bone-dim); max-width: 660px; }
+  .kc-hero .meta { font-family: var(--font-mono); font-size: 13px; color: var(--slate); margin-top: 28px; }
 
-  .kc-body { max-width: 1200px; margin: 0 auto; padding: 80px 48px 120px; }
+  .kc-body { max-width: 1240px; margin: 0 auto; padding: 80px 48px 120px; }
   .kc-section { margin-bottom: 80px; }
   .kc-section:last-child { margin-bottom: 0; }
-  .kc-section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; border-bottom: 1px solid var(--hairline); padding-bottom: 16px; }
-  .kc-count { font-family: var(--font-mono); font-size: 12px; color: var(--slate-500); letter-spacing: .08em; }
+  .kc-section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 32px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  .kc-count { font-family: var(--font-mono); font-size: 12px; color: var(--slate); letter-spacing: .08em; }
   .kc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .kc-card {
-    padding: 28px 30px; background: var(--bone); border: 1px solid var(--hairline);
-    border-radius: 12px; transition: border-color .2s, transform .15s, box-shadow .25s;
+    padding: 28px 30px; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; transition: border-color .25s, transform .2s, box-shadow .25s;
     color: inherit; text-decoration: none; display: block;
   }
-  .kc-card:hover { border-color: var(--ink); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(14,17,22,.06); }
-  .kc-cat { font-family: var(--font-sans); font-size: 10.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--copper); margin-bottom: 12px; }
-  .kc-card h3 { font-family: var(--font-serif); font-weight: 400; font-size: 21px; letter-spacing: -.015em; margin: 0 0 12px; line-height: 1.25; color: var(--ink); }
-  .kc-card p { font-size: 13.5px; line-height: 1.6; color: var(--slate-700); margin: 0 0 16px; }
-  .kc-read { font-family: var(--font-mono); font-size: 12px; color: var(--copper); font-weight: 500; }
+  .kc-card:hover { border-color: rgba(199,132,58,.5); transform: translateY(-3px); box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+  .kc-cat { font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--copper-br); margin-bottom: 12px; }
+  .kc-card h3 { font-family: var(--font-serif); font-weight: 400; font-size: 21px; letter-spacing: -.015em; margin: 0 0 12px; line-height: 1.25; color: var(--bone); }
+  .kc-card p { font-size: 13.5px; line-height: 1.6; color: var(--bone-dim); margin: 0 0 16px; }
+  .kc-read { font-family: var(--font-mono); font-size: 12px; color: var(--copper-br); font-weight: 500; }
 
-  @media (max-width: 880px) { .kc-grid { grid-template-columns: 1fr; } .kc-hero, .kc-body { padding-left: 24px; padding-right: 24px; } }
+  @media (max-width: 880px) { .kc-grid { grid-template-columns: 1fr; } .kc-hero, .kc-body { padding-left: 22px; padding-right: 22px; } }
 </style>
 </head>
 <body>
@@ -48,9 +48,9 @@
 <nav class="nav">
   <a href="/" class="nav-logo" aria-label="Infoscend home">
     <svg viewBox="0 0 100 140" width="20" height="28" aria-hidden="true">
-      <rect x="10" y="96" width="24" height="10" rx="1" fill="#0E1116"/>
-      <rect x="38" y="68" width="24" height="10" rx="1" fill="#0E1116"/>
-      <rect x="66" y="40" width="24" height="10" rx="1" fill="#A86A2C"/>
+      <rect x="10" y="96" width="24" height="10" rx="1" fill="#F4F1EA"/>
+      <rect x="38" y="68" width="24" height="10" rx="1" fill="#F4F1EA"/>
+      <rect x="66" y="40" width="24" height="10" rx="1" fill="#E3A75A"/>
     </svg>
     <span class="wordmark">info<span class="scend">scend</span></span>
   </a>
@@ -166,7 +166,7 @@
       <a href="/articles/strategy-degradation.html" class="kc-card">
         <div class="kc-cat">Route to Market</div>
         <h3>Why Strategy Disappears Between the Boardroom and the Shelf</h3>
-        <p>A global marketing team designs a perfect promotion. By the time it reaches the DSR on the street, it is unrecognisable. This is not an execution problem — it is an information arc</p>
+        <p>A global marketing team designs a perfect promotion. By the time it reaches the DSR on the street, it is unrecognisable. This is not an execution problem - it is an information arc</p>
         <span class="kc-read">Read essay  →</span>
       </a>
       <a href="/articles/strategy-disappears.html" class="kc-card">
@@ -387,7 +387,7 @@ The...</p>
       <div>
         <h5>Contact</h5>
         <ul>
-          <li><a href="mailto:contact@infoscend.com" class="footer-email">contact@infoscend.com</a></li>
+          <li><a href="mailto:gaurav@infoscend.com" class="footer-email">gaurav@infoscend.com</a></li>
         </ul>
       </div>
     </div>
